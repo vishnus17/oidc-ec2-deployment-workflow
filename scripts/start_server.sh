@@ -8,4 +8,4 @@ export NVM_DIR="$HOME/.nvm"
 nvm install 16
 npm install pm2@latest -g
 # source /etc/profile.d/script.sh -> uncomment this to load any environment variables from the script.sh file
-pm2 start index.js
+pm2 start index.js # change directory to the location of your server .js file to start your server
