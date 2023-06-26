@@ -17,7 +17,7 @@ jobs:
       with:
         role-to-assume: ${{ secrets.IAM_ROLE }}
         role-session-name: github-actions-deployment-session
-        aws-region: ${{ env.AWS_REGION }}
+        aws-region: ${{ secrets.AWS_REGION }}
     - run: |
         commit_hash=`git rev-parse HEAD`
         aws deploy create-deployment --application-name ${{ secrets.APPLICATION_NAME }} --deployment-group-name ${{ SECRETS.DG }} --github-location repository=$GITHUB_REPOSITORY,commitId=$commit_hash --ignore-application-stop-failures
