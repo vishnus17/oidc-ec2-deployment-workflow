@@ -1,21 +1,11 @@
-var request = require('request');
+var http = require('http');
 
-var url = 'https://blog.learnmorecloud.com/learn-how-to-use-a-lambda-function-to-trigger-a-codebuild-in-another-account';
+var server = http.createServer(function(req, res) {
+    res.writeHead(200);
+    res.end('Hello World');
+});
 
-var options = {
-    url: url,
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json'
-    }
-};
+server.listen(8080);
+console.log("Server is listening on port 8080");
 
-request(options, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-        console.log("success");    
-    }
-    else {
-        console.log(error);
-    }
-    }
-);
+
