@@ -22,4 +22,4 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
     - run: |
         commit_hash=`git rev-parse HEAD`
-        aws deploy create-deployment --application-name ${{ secrets.APPLICATION_NAME }} --deployment-group-name ${{ SECRETS.DG }} --revision revisionType=GitHub,gitHubLocation={repository=$GITHUB_REPOSITORY,commitId=$commit_hash} --ignore-application-stop-failures
+        aws deploy create-deployment --application-name ${{ secrets.APPLICATION_NAME }} --deployment-group-name ${{ SECRETS.DG }} --revision revisionType=GitHub --github-location repository=$GITHUB_REPOSITORY,commitId=$commit_hash --ignore-application-stop-failures
